@@ -1,97 +1,85 @@
-@import url("https://fonts.googleapis.com/css?family=Sofia");
+/* === NEW, SIMPLIFIED BASE STYLES === */
 
-.sideNavbar {
-	position: fixed;
-	top: 0;
-	left: -270px;
-	bottom: 0;
-	height: 100vh;
-	width: 325px;
-	background-color: #00203FFF;;
-	overflow: hidden;
-	color: #ADEFD1FF;
-	transition: 1s;
+/* Define color variables for consistency */
+:root {
+    --dark-blue: #00203FFF;
+    --accent-green: #ADEFD1FF;
+    --white: #ffffff;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.sideNavbar:hover {
-	top: 0;
-	left: 0;
-	width: 325px; 
+body {
+    background-color: #f0f2f5;
 }
 
-.sideNavbar:hover .fa-bars {
-	color: #00203FFF; 
+/* --- Main Sidebar Styling --- */
+.sideNavbar {
+    position: fixed; /* Fixes the sidebar to the side */
+    top: 0;
+    left: 0;
+    width: 260px; /* Sets a permanent, fixed width */
+    height: 100vh; /* Full screen height */
+    background-color: var(--dark-blue);
+    padding: 15px;
+    overflow-y: auto; /* Allows scrolling if you add many links */
 }
 
-.menu .logo{
-	text-align: center;
-	display: flex;
-	margin-top: 35px;
-	margin-bottom: 100px;
-	margin-left: -15px;
+.sideNavbar ul {
+    list-style: none;
 }
 
-.sideNavbar .logout {
-	display: flex;
-	margin-top: 80px;
-	margin-left: 30px;
-}
-.sideNavbar .logout:hover {
-	color: ghostwhite;
-}
-
-.sideNavbar .logout:hover span {
-	color: ghostwhite;
+.sideNavbar li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    color: var(--white); /* Ensures text and icons are white */
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.sideNavbar li{
-	list-style: none !important;
-	margin-bottom: 29px;
-	margin-left: 35px;
+/* This is the text part (e.g., "Dashboard") */
+.sideNavbar .nav-item {
+    display: inline; /* Makes the text permanently visible */
+    margin-left: 15px;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-#usr {
-	margin-right: 90px;
-  }
-  
-
-.menu .logo span {
-	font-weight: bold;
-	padding-left: 6px;
-	font-size: 20px;
-	text-transform: uppercase;
+/* Style for the logo/brand link at the top */
+.sideNavbar a.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
-.menu :hover{
-	color:ghostwhite;
+.sideNavbar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-a {
-	text-decoration: none !important;
-	color: #ADEFD1FF;
+/* Style for the currently active page link */
+.sideNavbar li.active a {
+    background-color: var(--accent-green);
+    color: var(--dark-blue);
+    font-weight: bold;
 }
 
-
-.nav-item {
-	position: relative;
-	color: #ADEFD1FF;
-	font-size: 16px;
-	text-transform: uppercase;
-	padding-left: 10px;
+.sideNavbar li.logout {
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 30px); /* Adjusts width to account for padding */
 }
 
-.hidemenu {
-	list-style: none !important;
-	border-bottom:2px solid ghostwhite;
-	padding-bottom: 10px;
-	margin-top: -5px;
-	transition: 0.2s;
-	width: fit-content;
+/* --- Main Content Area Styling --- */
+/* This rule pushes your main content to the right of the sidebar */
+.main-content-area {
+    margin-left: 260px; /* Must match the sidebar width */
+    padding: 30px;
 }
-
-.hidemenu a, .hidemenu span{
-	color: ghostwhite;
-}
-

@@ -1,76 +1,52 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Apartment</title>
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/RentApartmentStyle.css')}}">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<p><a href="/TenantDashboard"><i class="fa-solid fa-arrow-left" style="color: #ADEFD1FF;"></i></a><i class="fa-solid fa-building"></i>APARTMENTS</p>
-			</nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Apartments - ARORA Rentals</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/RentApartmentStyle.css') }}">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        <a href="/TenantDashboard" class="back-link-simple"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+
+        <header class="page-header">
+    		<h1>Available Properties</h1>
+    		<p>Explore our listings and find your perfect new home.</p>
+    
+    <!-- ADDED THIS SEARCH FORM -->
+    		<form action="{{ url_for('rentApartment') }}" method="get" class="search-form">
+        	<input type="text" name="search_query" placeholder="Search by title, location, or description..." value="{{ search_query or '' }}">
+        	<button type="submit">Search</button>
+    </form>
 		</header>
-		<section>
-			<div class="container">
-			{% for aptRow in apartment %}
-				<div>
-					<div id="box">
-						<div class="row1">
-							<div class="col1">
-								{% for i in img_url %} 
-									{% if i['ROOM_NO'] == aptRow['ROOM_NO'] %}  
-										{% set hallImage = i['PATHNAME']+'/'+i['PHOTO1'] %}
-										<img src="{{url_for('static',filename=hallImage)}}" alt="Hall">
-									{% endif %}
-								{% endfor %}
-							</div>
-							<div class="col2">
-								{% if aptRow['APT_TITLE'] %}
-									<h1>{{ aptRow['APT_TITLE'] }}</h1>
-								{% endif %}
-								<p>
-									{% if aptRow['ROOM_NO'] %}
-										<span style="padding-right: 20px;">Apartment No : <span id="apt_id">{{ aptRow['ROOM_NO']  }}</span></span>
-									{% endif %}
-									{% if aptRow['RENT_PER_MONTH'] %}
-										<span style="padding-right: 20px;">Rent :<i class="fa-solid fa-indian-rupee-sign"></i>{{ aptRow['RENT_PER_MONTH'] }}</span>
-									{% endif %}
-									{% if aptRow['AREA'] %}
-										<span>Area : {{ aptRow['AREA'] }} Sq.ft.</span>
-									{% endif %}
-								</p>
-								{% if aptRow['APARTMENT_DESC'] %}  
-									<p id="desc">{{ aptRow['APARTMENT_DESC'] | replace('. ', '.<br>') | safe }}</p>
-								{% endif %} 
-						</div>
-						<div id="row2">
-							{% for i in img_url %} 
-								{% if i['ROOM_NO'] == aptRow['ROOM_NO'] %}  
-									{% set kitchenImage = i['PATHNAME']+'/'+i['PHOTO2'] %}
-									{% set bedroomImage = i['PATHNAME']+'/'+i['PHOTO3'] %}
-									{% set extraImage = i['PATHNAME']+'/'+i['PHOTO4'] %}
-									<div class="col3">
-										<img src="{{url_for('static',filename=bedroomImage)}}" alt="Bedroom">
-									</div>
-									<div class="col4">
-										<img src="{{url_for('static',filename=kitchenImage)}}" alt="Kitchen">
-									</div>
-									<div class="col5">
-										<img src="{{url_for('static',filename=extraImage)}}" alt="Dinning">
-									</div>
-								{% endif %}
-							{% endfor %}
-						</div>
-						<div class="row3">
-							<p><button type="submit" id="btnSubmit"><a href="/Details">BOOK NOW</a></button></p>
-						</div>
-					</div>
-				</div>
-			{% endfor %}
-			</div>
-    	</section>
-	</body>
+
+        <main class="property-listings">
+            <!-- This loop creates a card for each available apartment -->
+            {% for apt in apartment %}
+                <div class="property-card">
+                    <div class="card-image">
+                        <!-- This inner loop finds the correct hall photo for this apartment -->
+                        {% for photo in img_url %}
+                            {% if photo['ROOM_NO'] == apt['ROOM_NO'] %}
+                                {% set hall_image = photo['PATHNAME'] + '/' + photo['PHOTO1'] %}
+                                <img src="{{ url_for('static', filename=hall_image) }}" alt="{{ apt['APT_TITLE'] }}">
+                            {% endif %}
+                        {% endfor %}
+                        <div class="rent-tag">₹ {{ apt['RENT_PER_MONTH'] }}/Month</div>
+                    </div>
+                    <div class="card-details">
+                        <h3>{{ apt['APT_TITLE'] }}</h3>
+						<p class="room-info"><i class="fas fa-door-closed"></i> Apartment No: {{ apt['ROOM_NO'] }}</p>
+                        <p class="area-info"><i class="fas fa-ruler-combined"></i> {{ apt['AREA'] }} sq. ft.</p>
+                        <p class="description">{{ apt['APARTMENT_DESC'] | truncate(100) }}</p>
+                        <a href="/Details" class="details-button">Book Now</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </main>
+    </div>
+</body>
 </html>

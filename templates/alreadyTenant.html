@@ -1,34 +1,43 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Tenant Details</title>
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/detailsStyle.css')}}">
-	</head>
-	<body>
-        <div class="box">
-            <nav class="navbar">
-                <div class="container">
-                    <a href="#" class="lead" onclick="history.back()"><i class="fa fa-arrow-left" style="font-size: 22px;"></i> BACK</a>
-                </div>
-            </nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Payment - ARORA Rentals</title>
+    <!-- This links to the CSS file we will update next -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detailsStyle.css') }}">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-			{% if Error %}  
-        		<p class="error" style="top: 45px;"><strong>Error</strong>: {{Error}}</p>  
-    		{% endif %} 
-    		<div class="formbox" style="height:310px; width:580px; left:calc(50% - 290px); top:calc(50% - 155px)">
-    			<h1>Please Fill Out The Details</h1>
-    			<form action="{{ url_for('alreadyTenant') }}" method="post">
-    				<p>Username : 
-    				<input type="email" name="Username" placeholder="Enter your email" required/></p>
-    				<p>Apartment No. : 
-    				<input type="number" name="aptNo" placeholder="  Eg : 152" required min=3/></p>
-    				<input type="submit" value="Submit"><br>
-    			</form>
-    		</div>
-    	</div>
+    <!-- The new black back button -->
+    <a href="/TenantDashboard" class="back-link-simple"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
 
-    </body>
+    <div class="form-container">
+        <header class="form-header">
+            <h1>Please Fill Out The Details</h1>
+        </header>
+
+        <!-- Display error message if it exists -->
+        {% if Error %}
+            <p class="error-message">{{ Error }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('alreadyTenant') }}" method="post" class="details-form">
+            <div class="form-group">
+                <label for="Username">Username (Your Email)</label>
+                <input type="email" id="Username" name="Username" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="aptNo">Apartment No.</label>
+                <input type="text" id="aptNo" name="aptNo" placeholder="Eg: 152" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</body>
 </html>

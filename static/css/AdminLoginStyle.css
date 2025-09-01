@@ -1,163 +1,106 @@
-@font-face {
-  font-family: Lucida;
-  src: url(sansation_light.woff);
+/* --- Full Page Background --- */
+body.admin-login-page {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url('../images/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
-body {
-	padding: 0;
-	margin: 0;
+/* --- "BACK" Link Style --- */
+.navbar a.lead {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 20px;
+    display: block;
 }
 
-.box {
-	position: absolute;
-	width: 100%;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	background-image: url('/static/images/adminBg.jpg');
-	background-color: #00203FFF;
-	background-size: cover;
-	background-position: center center;
-}
-
-.navbar {
-  position: fixed;
-  padding-top: 23px; 
-  background:  #00203FFF;
-  width: 100%;
-  padding-bottom: 20px;
-}
-
-.lead {
-	font-size: 24px;
-	font-family: Lucida;
-	color: #ADEFD1FF;
-	margin-left: 35px;
-	text-decoration: none;
-}
-
-i {
-	padding-right: 5px;
-}
-
+/* --- Login Form Container --- */
 .loginbox {
-	width: 380px;
-	height: 470px;
-	background: #00203FFF;
-	color: #ADEFD1FF;
-	border-radius: 5%;
-	border: 1px solid ghostwhite;
-	box-shadow: 2px 2px 8px skyblue;
-	position: absolute;
-	top: 80px;
-	right: 95px;
-	box-sizing: border-box;
-	padding: 10px 30px;
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 32, 63, 0.8); /* Dark blue, semi-transparent background */
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    text-align: center;
 }
 
-.user {
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	position: absolute;
-	top: -60px;
-	left: calc(50% - 60px);
+.loginbox .user {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -70px;
+    left: calc(50% - 50px);
 }
 
-h1 {
-	padding-top: 40px;
-	padding-bottom: 10px;
-	text-align: center;
-	font-size: 30px;
-	font-family: Lucida;
+/* --- Form Text and Title --- */
+.loginbox h1 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: white; /* CHANGED */
+    font-size: 28px;
 }
 
 .loginbox p {
-	margin: 0;
-	padding: 0;
-	font-weight: bold;
-	font-family: monospace;
-	font-size: 19px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: white; /* CHANGED */
+    text-align: left;
 }
 
+/* --- Input Fields --- */
 .loginbox input {
-	width: 100%;
-	margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-.loginbox input[type="text"], input[type="password"] 
-{
-	border: none;
-	border-bottom: 1px solid ghostwhite;
-	background: transparent;
-	outline: none;
-	height: 35px;
-	color: ghostwhite;
-	font-size: 18px;
-	font-family: Lucida;
+.loginbox input[type="text"], 
+.loginbox input[type="password"] {
+    border: none;
+    border-bottom: 1px solid white; /* CHANGED */
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white; /* CHANGED */
+    font-size: 16px;
 }
 
-input[type="submit"]
-{
-	outline: none;
-	margin-top: 0;
-	margin-bottom :14px;
-	margin-left: calc(50% - 55px);
-	height: 40px;
-	width: 110px;
-	background: #ADEFD1FF;
-	border-radius: 20px;
-	border: 1px solid #000;
-	box-shadow: 2px 2px 6px #000;
-	color: #00203FFF;
-	font-size: 20px;
-	font-family: monospace;
+/* --- Submit Button --- */
+.loginbox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #ADEFD1; /* Light green background */
+    color: #00203F; /* Dark blue text */
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.loginbox input[type="submit"]:hover
-{
-	cursor: pointer;
-	color: #000;
-	font-weight: bold;
+.loginbox input[type="submit"]:hover {
+    background: white;
+    color: #00203F;
 }
 
-.loginbox a {
-	text-decoration: none;
-	font-family: cursive;
-	font-size: 16px;
-	line-height: 20px;
-	color: #ADEFD1FF;
-}
-
-.loginbox a:hover {
-	color:#008080;
-}
-
-.error, .log{
-	font-size: 22px;
-	color: white;
-	position: fixed;
-	z-index: 9;
-	top: 5px;
-	left: 580px;
-    -webkit-animation: cssAnimation 5s forwards; 
-    animation: cssAnimation 5s forwards;
-}
-
-.log {
-	left: 500px;
-}
-
-@keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
-}
-
-@-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
+/* --- Error Messages --- */
+.error {
+    background-color: #ff5252;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    top: 80px;
+    width: 100%;
 }

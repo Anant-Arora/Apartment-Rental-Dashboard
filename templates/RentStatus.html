@@ -1,45 +1,72 @@
 {% extends 'base.html' %}
-{% block title %}Tenants Report{% endblock%}
+{% block title %}Rent Status Report{% endblock%}
+
 {% block script %}
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/TenantReportStyle.css')}}">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- We will update this CSS file next -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/TenantReportStyle.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 {% endblock %}
-{% block content %} 
-		<header>
-			<nav class="navbar">
-				<ul class="nav-bar">
-					<li><a href="\ApartmentRooms" class="previous"><i class="fa-solid fa-arrow-left"></i></a></li>	
-					<li class="tenant"><p><i class="fa-solid fa-coins"></i> RENT STATUS</p></li>
-					<li class="search" style='padding-left: 385px'><input type="text" placeholder="  Search apartment no. here...." class="live-search-box"><i class="fa-solid fa-magnifying-glass" style="font-size: 20px;"></i></li>
-					<li><a href="/Backup" class="next"><i class="fa-solid fa-arrow-right"></i></a></li>
-				</ul>
-				</ul>
-			</nav>
-		</header>
-		<section>
-			<ul class="crud">
-				<li><button class="operations" type="submit"><a href="/UpdatedRentStatus">UPDATE <i class="fa-solid fa-pen-to-square"></i></a></button></li>
-			<table>
-  				<tr>
-    				<th>First Name</th>
-					<th>Last Name</th>
-    				<th>Apt No.</th>
-    				<th>Rent</th>
-    				<th>Due date</th>
-    				<th>Status</th>
-					<th>Late Fee</th>
-  				</tr>
-  				{% for row in rent_status %}  
-					<tr class="live-search-list">
-						{% for col in row %}
-							<td>{{row[col]}}</td>
-						{% endfor %}
-					</tr> 
-				{% endfor %}
-			</table>
-		</section>
+
+{% block content %}
+<div class="main-content-area">
+
+    <header class="page-header">
+        <h1 class="page-title">Rent Status Report</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search by name or room..." class="live-search-box">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </header>
+
+    <!-- Action Card for Updating Rent Status -->
+    <div class="action-container card-shadow">
+        <header class="form-header">
+            <h2>Update Rent Records</h2>
+            <p>Click the button to apply late fees and update due dates for all tenants based on the current date.</p>
+        </header>
+        <a href="/UpdatedRentStatus" class="update-btn">Run Rent Update</a>
+    </div>
+
+    <!-- Table of Rent Statuses -->
+    <div class="table-container card-shadow">
+        <header class="form-header">
+            <h2>Current Rent Status</h2>
+        </header>
+        <table class="property-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Apt No.</th>
+                    <th>Rent (₹)</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Late Fee (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rent_status %}
+                <tr class="live-search-list">
+                    <td>{{ row.FNAME }}</td>
+                    <td>{{ row.LNAME }}</td>
+                    <td>{{ row.ROOM_NO }}</td>
+                    <td>{{ row.RENT_PER_MONTH }}</td>
+                    <td>{{ row.DUE_DATE.strftime('%d-%b-%Y') }}</td>
+                    <td>
+                        <!-- This adds a colored badge for the status -->
+                        <span class="status-badge status-{{ row.R_STATUS | lower }}">{{ row.R_STATUS }}</span>
+                    </td>
+                    <td>{{ row.LATE_FEE }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
 
 {% block endscript %}
-	<script type="text/javascript" src="{{url_for('static',filename='js/search.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/search.js')}}"></script>
 {% endblock %}

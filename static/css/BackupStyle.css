@@ -1,0 +1,72 @@
+/* === Modern "Backup Status" Page Styles === */
+
+:root {
+    --dark-blue: #00203FFF;
+    --light-gray-bg: #f0f2f5;
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-light: #666;
+}
+
+.main-content-area {
+    padding: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.card-shadow {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.backup-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.backup-table thead tr {
+    background-color: #f8f9fa;
+    text-align: left;
+}
+
+.backup-table th,
+.backup-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.backup-table th {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.backup-table td {
+    color: var(--text-light);
+}
+
+.backup-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.backup-table tbody tr:last-child td {
+    border-bottom: none;
+}

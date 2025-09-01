@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Login Page</title>
-	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/LoginStyle.css')}}">
-	</head>
-	<body>
-		{% if error %}  
-        	<p class="error"><strong>Error</strong>: {{error}}</p>  
-    	{% endif %} 
-		{% if log %}  
-        	<p class="log">{{log}}</p>  
-    	{% endif %}  
-		<div class="box">
-            <nav class="navbar">
-                <div class="container">
-                    <a href="/" class="lead"><i class="fa fa-arrow-left"></i> BACK</a>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tenant Login - ARORA Rentals</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/LoginStyle.css')}}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="tenant-login-page">
+
+        <a href="/" class="back-link"><i class="fa fa-arrow-left"></i> BACK</a>
+
+        <div class="split-container">
+            
+            <div class="form-section">
+                <div class="loginbox">
+                    <img src="{{url_for('static',filename='images/black-logo.png')}}" class="logo">
+                    <h1>Welcome Back</h1>
+                    <p class="subtitle">Please enter your details to sign in.</p>
+
+                    <form action="{{ url_for('TenantLogin') }}" method="post">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="username" placeholder="Enter your email" required/>
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="pswd1" placeholder="Enter Password" required/>
+                        
+                        <input type="submit" value="Sign In">
+                    </form>
+
+                    <p class="register-prompt">
+                        Don't have an account? <a href="/TenantRegister">Register here</a>
+                    </p>
                 </div>
-            </nav>
+            </div>
 
-    		<div class="loginbox">
-    			<img src="{{url_for('static',filename='images/user_icon.jpg')}}" class="user">
-    			<h1>Tenant Sign In</h1>
-    			<form action="{{ url_for('TenantLogin') }}" method="post">
-    				<p>Email : </p>
-    				<input type="email" name="username" placeholder="Enter your email" required/>
-    				<p>Password : </p>
-    				<input type="password" name="pswd1" placeholder="Enter Password" required />
-    				<input type="submit" value="Sign In"><br>
-    				<ul>
-    					<li><a href="/TenantRegister">New Member? Register yourself here..</a></li>
-    				</ul>
-    			</form>
-    		</div>
-    	</div>
+            <div class="visual-section">
+                <img src="{{ url_for('static', filename='images/login-visual.png') }}" alt="Modern Apartment Decor">
+            </div>
 
-	</body>
+        </div>
+
+    </body>
 </html>

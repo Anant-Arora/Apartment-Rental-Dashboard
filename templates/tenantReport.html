@@ -1,68 +1,82 @@
 {% extends 'base.html' %}
-{% block title %}Tenants Report{% endblock%}
+{% block title %}Tenants Report - ARORA Rentals{% endblock%}
+
 {% block script %}
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/TenantReportStyle.css')}}">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/TenantReportStyle.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 {% endblock %}
-{% block content %} 
-			<nav class="navbar"> 
-				<ul class="nav-bar">
-					<li class="arrow"><a href="/TotalUsers" class="previous"><i class="fa-solid fa-arrow-left"></i></a></li>	
-					<li class="tenant"><p><i class="fa-solid fa-users"></i> Tenants</p></li>
-					<li class="search"><input type="text" placeholder="  Search here...." class="live-search-box" /><i class="fa-solid fa-magnifying-glass" style="font-size: 20px;"></i></li>
-					<li class="arrow"><a href="/ApartmentRooms" class="next"><i class="fa-solid fa-arrow-right"></i></a></li>
-				</ul>
-			</nav>
-		</header>
-		<section> 
-			<ul class="crud"><li><button class="operations" onclick="openDeleteForm()"><a href="#DeleteTenant">DELETE <i class="fa-solid fa-trash"></i></a></button></li>
-				<div class="form-popup" id="deleteForm">
-                    <form class="form-container" action="{{ url_for('tenantReport') }}" method="post">
-                        <!-- Delete Section Heading-->
-                        <p class="heading">DELETE  TENANT<p>
-                        <!-- Icon Divider-->
-                        <div class="divider-custom">---------------
-                            <i class="fa-solid fa-star"></i>---------------
-                        </div>
-                        <!-- Delete Section Form-->
-                        <div class="row">
-                            <div class="col">
-                                <div class="tenant-info">
-                                	<div class="input-field">
-                                        <label class="l2">Tenant Id : </label>
-                                        <input class="if1" id="t_id" type="number" name="tid" placeholder=" Enter tenant Id" required/>
-                                    </div>
-								</div>
-                                <input type="submit" class="btn" value="Delete" /> 
-                                <button type="button" class="cancel" onclick="closeDeleteForm()">Close</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-			</ul>
-			<table>
-  				<tr>
-					<th>Tenant Id</th>
-    				<th>First Name</th>
-					<th>Last Name</th>
-    				<th>Gender</th>
-    				<th>Phone No.</th>
-    				<th>Email</th>
-    				<th>Room No.</th>
-  				</tr>
-  				{% for row in tenantReport %}  
-					<tr  class="live-search-list">
-						{% for col in row %}
-							<td>{{row[col]}}</td>
-						{% endfor %}
-					</tr> 
-				{% endfor %}
-			</table>
-		</section>
+
+{% block content %}
+<div class="main-content-area">
+
+    <!-- Display Flashed Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <header class="page-header">
+        <h1 class="page-title">Active Tenants Report</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search by name or email..." class="live-search-box">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </header>
+
+    <!-- Action Card for Deleting a Tenant -->
+    <div class="action-container card-shadow">
+        <header class="form-header">
+            <h2>Manage Tenants</h2>
+        </header>
+        <form action="{{ url_for('tenantReport') }}" method="post" class="delete-form">
+            <div class="form-group">
+                <label for="tid">Enter Tenant ID to Delete</label>
+                <input type="number" id="tid" name="tid" placeholder="e.g., 101" required>
+            </div>
+            <button type="submit" class="delete-btn">Delete Tenant</button>
+        </form>
+    </div>
+
+    <!-- Table of Existing Tenants -->
+    <div class="table-container card-shadow">
+        <header class="form-header">
+            <h2>Current Tenants</h2>
+        </header>
+        <table class="property-table">
+            <thead>
+                <tr>
+                    <th>Tenant ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Phone No.</th>
+                    <th>Email</th>
+                    <th>Room No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in tenantReport %}
+                <tr class="live-search-list">
+                    <td>{{ row.T_ID }}</td>
+                    <td>{{ row.FNAME }}</td>
+                    <td>{{ row.LNAME }}</td>
+                    <td>{{ row.GENDER }}</td>
+                    <td>{{ row.PH_NO }}</td>
+                    <td>{{ row.EMAIL }}</td>
+                    <td>{{ row.ROOM_NO }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
 
 {% block endscript %}
-	<script type="text/javascript" src="{{url_for('static',filename='js/Scripts.js')}}"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="{{url_for('static',filename='js/search.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/search.js')}}"></script>
 {% endblock %}

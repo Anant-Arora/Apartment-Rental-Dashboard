@@ -1,41 +1,52 @@
 {% extends 'base.html' %}
-{% block title %}Total Users{% endblock%}
+{% block title %}Total Users - ARORA Rentals{% endblock%}
+
 {% block script %}
-	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/TotalUsersStyle.css')}}">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/TotalUsersStyle.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 {% endblock %}
-{% block content %} 
-    	<nav class="navbar">
-			<ul class="nav-bar">
-            	<li class="arrow"><a href="/AdminDashboard" class="previous"><i class="fa-solid fa-arrow-left"></i></a></li>
-				<li class="users"><p><i class="fa-solid fa-users"></i> Users</p></li>
-				<li class="search"><input type="text" placeholder=" Search here...." class="live-search-box" /><i class="fa-solid fa-magnifying-glass" style="font-size: 20px;"></i></li>
-				<li class="arrow"><a href="/tenantReport" class="next"><i class="fa-solid fa-arrow-right"></i></a></li>
-			</ul>
-		</nav>
-		<section>
-			<table>
-				<tr> 
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Gender</th>  
-					<th>Phone No</th> 
-					<th>Email</th>
-					<th>Apt No.</th> 
-				</tr> 
-				{% for row in msg5 %}  
-					<tr class="live-search-list">
-						{% for col in row %}
-							<td>{{row[col]}}</td>
-						{% endfor %}
-					</tr> 
-				{% endfor %}
-			</table>
-		</section>
+
+{% block content %}
+<div class="main-content-area">
+    <header class="page-header">
+        <h1 class="page-title">All Registered Users</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search by name or email..." class="live-search-box">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </header>
+
+    <div class="table-container card-shadow">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Phone No.</th>
+                    <th>Email</th>
+                    <th>Apt No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in msg5 %}
+                <tr class="live-search-list">
+                    <td>{{ row.FNAME }}</td>
+                    <td>{{ row.LNAME }}</td>
+                    <td>{{ row.GENDER }}</td>
+                    <td>{{ row.PH_NO }}</td>
+                    <td>{{ row.EMAIL }}</td>
+                    <td>{{ row.ROOM_NO if row.ROOM_NO else 'N/A' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
 
 {% block endscript %}
-<script type="text/javascript" src="{{url_for('static',filename='js/AdminDashScripts.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="{{url_for('static',filename='js/search.js')}}"></script>
 {% endblock %}

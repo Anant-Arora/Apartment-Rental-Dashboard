@@ -1,143 +1,116 @@
-@font-face {
-    font-family: Lucida;
-    src: url(sansation_light.woff);
-  }
-  
+/* === Modern "Enter Details" Page Styles === */
+
+:root {
+    --dark-blue: #00203FFF;
+    --light-gray-bg: #f0f2f5;
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-light: #666;
+    --error-red: #e74c3c;
+}
+
 body {
-      padding: 0;
-      margin: 0;
-      background: #00203FFF;
-  }
-  
-.box {
-      position: absolute;
-      background-position: center center;
-      width: 100%;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-  }
-  
-.navbar {
-    position: fixed;
-    padding-top: 23px; 
-    background-color: transparent;
-  }
-  
-.lead {
-  font-size: 20px;
-  font-family: Lucida;
-  color: #ADEFD1FF;
-  margin-left: 35px;
-  text-decoration: none;
-}
-  
-i {
-  padding-right: 5px;
-}
-  
-.formbox {
-  position: absolute;
-  width: 650px;
-  height: 400px;
-  background-color: #ADEFD1FF;
-  border-radius: 5%;
-  border: 1px solid #000;
-  box-shadow: 2px 2px 8px #000;
-  top: calc(50% - 200px);
-  left: calc(50% - 325px);
-  box-sizing: border-box;
-  padding: 30px 60px;
-}
-  
-h1 {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-gray-bg);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
-    padding-bottom: 50px;
-    text-align: center;
-    font-size: 26px;
-    font-family: Lucida;
+    padding: 20px;
+}
+
+.back-link-simple {
+    position: absolute;
+    top: 30px;
+    left: 30px;
     color: black;
-  }
-  
-p {
-    margin: 0;
-    padding: 0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.back-link-simple i {
+    margin-right: 8px;
+}
+
+/* This is the white tile with the shadow */
+.form-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    width: 100%;
+    max-width: 500px; /* Controls the width of the tile */
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+.details-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.details-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-dark); /* Black text */
+}
+
+.details-form input[type="email"],
+.details-form input[type="text"],
+.details-form input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    color: black;
+    transition: border-color 0.3s ease;
+}
+
+.details-form input:focus {
+    outline: none;
+    border-color: var(--dark-blue);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.1rem;
     font-weight: bold;
-    color: #000;
-    font-family: monospace;
-    font-size: 20px;
-  }
-  
-input {
-      width: 100%;
-      margin-bottom: 20px;
-  }
-
-input[type="email"], input[type="number"], input[type="text"] {
-      border: none;
-      border-bottom: 1px solid #000;
-      background: transparent;
-      outline: none;
-      height: 26px;
-      color: #000;
-      font-size: 18px;
-      font-family: Lucida;
-      width: 320px;
-  }
-
-input[type="number"] {
-  width: 200px;
-}
-  
-input[type="submit"]{
-      outline: none;
-      margin-left: 40%;
-      height: 50px;
-      width: 120px;
-      background: #00203FFF;
-      border-radius: 20px;
-      border:1px solid #000;
-      box-shadow: 2px 2px 4px #000;
-      margin-bottom: 13px;
-      color: #ADEFD1FF;
-      font-size: 20px;
-      font-family: Lucida;
-      margin-top: 24px;
-  }
-  
-input[type="submit"]:hover
-  {
-      cursor: pointer;
-      color: ghostwhite;
-  }
-
-.error {
-	font-size: 20px;
-	color: #fff;
-	background-color: #000;
-	border: 1px solid #00203FFF;
-	width: 500px;
-	height: 50px;
-	text-align: center;
-	padding-top: 22px;
-	position: fixed;
-	top: calc(50% - 75px);
-	left: calc(50% - 250px);
-	z-index: 9;
-  -webkit-animation: cssAnimation 5s forwards; 
-  animation: cssAnimation 5s forwards;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
-@keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
+.submit-btn:hover {
+    background: #012d52;
 }
 
-@-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
+.error-message {
+    background-color: var(--error-red);
+    color: var(--white);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
 }

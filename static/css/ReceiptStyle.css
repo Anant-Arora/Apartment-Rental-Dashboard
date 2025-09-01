@@ -1,93 +1,125 @@
-@font-face {
-    font-family: Lucida;
-    src: url(sansation_light.woff);
-  }
-  
-  body {
-      padding: 0;
-      margin: 0;
-      background: #00203FFF;
-  }
-  
-  .box {
-      position: absolute;
-      background-position: center center;
-      width: 100%;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-  }
-  
-  .navbar {
-    position: fixed;
-    padding-top: 23px; 
-    background-color: transparent;
-  }
-  
-  .lead {
-      font-size: 24px;
-      font-family: Lucida;
-      color: #ADEFD1FF;
-      margin-left: 35px;
-      text-decoration: none;
-  }
-  
-  i {
-      padding-right: 5px;
-  }
-  
-  .receiptbox {
-      width: 620px;
-      height: 460px;
-      background: #ADEFD1FF;
-      border-radius: 5%;
-      border: 1px solid #000;
-      box-shadow: 2px 2px 8px #000;
-      color: #000;
-      position: absolute;
-      top: calc(50% - 230px);
-      left: calc(50% - 310px);
-      box-sizing: border-box;
-      padding: 70px 30px;
-  }
-  
-  .payment {
-      border-radius: 50%;
-      width: 180px;
-      height: 180px;
-      position: absolute;
-      top: 30px;
-      left: calc(50% - 90px);
-  }
-  
-  h1 {
-      margin: 0;
-      padding-top: 180px;
-      padding-bottom: 50px;
-      text-align: center;
-      font-size: 34px;
-      font-family: Lucida;
-      color: black;
-  }
-  
-  .receiptbox p {
-      margin: 0;
-      padding: 0;
-      padding-left: 80px;
-      font-weight: bold;
-      color: #000;
-      font-family: monospace;
-      font-size: 20px;
-  }
+:root {
+    --dark-blue: #00203FFF;
+    --light-gray-bg: #f0f2f5;
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-light: #666;
+    --success-green: #28a745;
+}
 
-  .receiptbox a {
-      text-decoration: none;
-      font-family: cursive;
-      font-size: 16px;
-      line-height: 20px;
-      color: #000;
-  }
-  
-  .receiptbox a:hover {
-      color: #008080 ;
-  }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-gray-bg);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+}
+
+.receipt-container {
+    width: 100%;
+    max-width: 550px;
+}
+
+/* This is the main white tile with the shadow */
+.receipt-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    text-align: center;
+}
+
+.receipt-header {
+    margin-bottom: 25px;
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--success-green);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin: 0 auto 20px auto;
+}
+
+.receipt-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.receipt-header p {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin-bottom: 25px;
+}
+
+.receipt-details {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item span {
+    color: var(--text-light);
+}
+
+.detail-item strong {
+    font-weight: 500;
+}
+
+.detail-item.amount {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 2px solid var(--text-dark);
+}
+
+.detail-item .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+.dashboard-button {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-button:hover {
+    background: #012d52;
+}

@@ -1,242 +1,162 @@
-@font-face {
-  font-family: Lucida;
-  src: url(sansation_light.woff);
+/* === Modern Payment Page Styles === */
+
+:root {
+    --dark-blue: #00203FFF;
+    --light-gray-bg: #f0f2f5;
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-light: #666;
 }
 
-*{
-	padding: 0;
-	margin: 0;
-	outline: none;
-	border: none;
-	text-decoration: none;
-	box-sizing: border-box;
-	font-family: cursive;
+body.payment-page {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-gray-bg);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
-body {
-	background: #adefd1ff;
+.back-link-simple {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
-/*-------------------Popup Window-----------------*/
-/* 
-.modal-dialog {
-	width: 430px;
+.back-link-simple i {
+    margin-right: 8px;
 }
 
-.modal-header {
-	background: #00203fff;
-	color: #adefd1ff;
+.payment-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px B30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
 }
 
-button{
-	background: #00203fff;
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.fa-xmark {
-	color: #adefd1ff;
-	background: #00203fff;
+.form-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
 }
 
-.modal-body img {
-	width: 400px;
-	height: 200px;
-	padding: 0;
-	margin: 0;
-} */
-
-/*------------------Actual Window-----------------*/
-
-.payment header {
-	position: fixed;
-	width: 100%;
-	background: #00203fff;
+.form-header p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-top: 5px;
 }
 
-.payment header a {
-	text-decoration: none;
-	color: #ADEFD1FF;
+.payment-form .form-columns {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
 }
 
-.payment header p {
-	color: #ADEFD1FF;
-	font-size: 26px;
-	padding: 10px 0 0 35px;
-	font-family: Lucida;
+.details-column {
+    flex: 1;
 }
 
-.payment .fa-arrow-left {
-	padding-right: 30px;
-	font-size: 30px;
+.details-column h2 {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    border-bottom: 2px solid var(--light-gray-bg);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.payment .fa-credit-card {
-	padding-right: 10px;
+.form-group {
+    margin-bottom: 20px;
 }
 
-.payment .payment-box {
-	position: fixed;
-	top: 40px;
-	width: 100%;
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
 }
 
-/*---------Personal details----------*/
-
-table {
-  font-family: cursive;
-  border-collapse: collapse;
-  width: 1100px;
-  background: transparent;
-  color: #000;
-  position: relative;
-  margin-top: 35px;
-  left: calc(50% - 550px);
-  font-size: 18px;
-  }
-
-th {
-  border: 1px solid black;
-  text-align: center;
-  padding: 5px 0 5px 0;
-
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
-td {
-	border-left: 1px solid black;
-	border-right: 1px solid black;
-	text-align: center;
+.form-group input:focus {
+    outline: none;
+    border-color: var(--dark-blue);
 }
 
-.tr7 {
-	border-bottom: 1px solid black;
+.form-group input[readonly] {
+    background-color: #f7f7f7;
+    border: 1px solid #eee;
+    color: var(--text-light);
+    cursor: not-allowed;
 }
 
-.name {
-	padding-top: 9px;
+.form-row {
+    display: flex;
+    gap: 20px;
 }
 
-input[type="text"], input[type="number"], input[type="email"], input[type="month"] {
-	border: none;
-	background: transparent;
-	outline: none;
-	border-bottom: 1px solid black;
-	margin-left: 20px;
-	height: 30px;
-	font-size: 18px;
-	font-family: Lucida;
+.payment-summary {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 20px;
 }
 
-input[type="month"] {
-	width: 150px;
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
-.user-details .if1, .user-details .if2 {
-	width: 280px;
+.summary-item.total {
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
-.user-details .if3, .user-details .if5, .user-details .if6,
-.user-details .if7 {
-	width: 200px;
+.form-buttons {
+    margin-top: 30px;
 }
 
-.user-details .if4 {
-	width: 140px;
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.user-details .if8 {
-	width: 80px;
+.submit-btn:hover {
+    background: #012d52;
 }
 
-.user-details .l8 {
-	margin-left: 40px;
-}
-
-.payment-box .pay-btn, .payment-box .cancel-btn {
-	background: #00203fff;
-	color: #adefd1ff;
-	height: 40px;
-	font-size: 20px;
-	border-radius: 10%;
-	margin-top: 20px;
-	text-align: center;
-}
-
-.payment-box .pay-btn {
-	width: 80px;
-	margin-left: 460px;
-}
-
-.payment-box .cancel-btn {
-	width: 100px;
-	margin-left: 120px;
-}
-
-.payment-box button:hover {
-	font-weight: bold;
-	color: ghostwhite;
-}
-
-/*---------Flashed message---------*/
-
-.msg {
-	font-size: 22px;
-	color: #fff;
-	background-color: #000;
-	border: 1px solid #00203FFF;
-	width: 500px;
-	height: 150px;
-	text-align: center;
-	padding-top: 59px;
-	position: fixed;
-	top: calc(50% - 75px);
-	left: calc(50% - 250px);
-	z-index: 9;
-    -webkit-animation: cssAnimation 5s forwards; 
-    animation: cssAnimation 5s forwards;
-}
-
-@keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
-}
-
-@-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
-}
-
-/*----------Error Msg------*/
-
-.error {
-	font-size: 20px;
-	color: #fff;
-	background-color: #000;
-	border: 1px solid #00203FFF;
-	width: 500px;
-	height: 80px;
-	text-align: center;
-	padding-top: 22px;
-	position: fixed;
-	top: calc(50% - 75px);
-	left: calc(50% - 200px);
-	z-index: 9;
-  -webkit-animation: cssAnimation 5s forwards; 
-  animation: cssAnimation 5s forwards;
-}
-
-@keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
-}
-
-@-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .payment-form .form-columns {
+        flex-direction: column;
+        gap: 20px;
+    }
 }

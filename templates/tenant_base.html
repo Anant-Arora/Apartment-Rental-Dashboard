@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}ARORA Rentals{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- We use the admin's base.css for a consistent sidebar style -->
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/base.css')}}">
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- This block allows other pages to add their own specific CSS -->
+        {% block head_extra %}{% endblock %}
+    </head>
+    <body>
+        <nav class="sideNavbar">
+            <ul id="checklist">
+                <!-- Header with Logo -->
+                <li class="menu" id="admin"><a class="logo" href="/TenantDashboard">
+                    <img src="{{ url_for('static', filename='images/arora-logo.png') }}" alt="Logo" style="width: 30px; height: 30px; margin-right: 15px;">
+                    <span class="nav-item">ARORA Rentals</span>
+                </a></li>
+                
+                <!-- Tenant Navigation Links -->
+                <li class="menu"><a href="/TenantDashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span class="nav-item">Dashboard</span>
+                </a></li>
+                <li class="menu"><a href="/RentApartment">
+                    <i class="fas fa-building"></i>
+                    <span class="nav-item">Rent an Apartment</span>
+                </a></li>
+                <li class="menu"><a href="/alreadyTenant">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span class="nav-item">Make a Payment</span>
+                </a></li>
+                 <li class="menu"><a href="/list-property">
+                    <i class="fas fa-plus-circle"></i>
+                    <span class="nav-item">List Your Property</span>
+                </a></li>
+                
+                <!-- Logout Button -->
+                <li class="logout"><a href="/Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Logout</span>
+                </a></li>
+            </ul>
+        </nav>
+        
+        <!-- This is where the content of your pages (like the dashboard tiles) will go -->
+        <main class="main-content-area">
+            {% block content %}
+            {% endblock %}
+        </main>
+        
+    </body>
+</html>
+
+

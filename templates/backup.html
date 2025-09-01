@@ -1,40 +1,47 @@
 {% extends 'base.html' %}
 {% block title %}Tenant Backup{% endblock%}
+
 {% block script %}
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/TenantReportStyle.css')}}">
-{% endblock %}
-{% block content %} 
-		<header>
-			<nav class="navbar">
-				<ul class="nav-bar">
-					<li><a href="/RentStatus" class="previous"><i class="fa-solid fa-arrow-left"></i></a></li>
-					<li class="tenant"><p><i class="fa-solid fa-database"></i> Backup</p></li>
-				</ul>
-			</nav>
-		</header>
-		<section>
-			<table style="margin-top: 140px">
-  				<tr>
-					<th>Tenant Id</th>
-    				<th>First Name</th>
-					<th>Last Name</th>
-    				<th>Gender</th>
-    				<th>Phone No.</th>
-    				<th>Email</th>
-    				<th>Room No.</th>
-  				</tr>
-  				{% for row in backup_status %}  
-					<tr>
-						{% for col in row %}
-							<td>{{row[col]}}</td>
-						{% endfor %}
-					</tr> 
-				{% endfor %}
-			</table>
-		</section>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- This now links to the new, dedicated CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/BackupStyle.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 {% endblock %}
 
-{% block endscript %}		
-	<script type="text/javascript" src="{{url_for('static',filename='js/Scripts.js')}}"></script>
+{% block content %}
+<div class="main-content-area">
+    <header class="page-header">
+        <h1 class="page-title">Deleted Tenant Backup</h1>
+        <p class="page-subtitle">This table shows a record of all tenants that have been deleted from the system.</p>
+    </header>
+
+    <div class="table-container card-shadow">
+        <table class="backup-table">
+            <thead>
+                <tr>
+                    <th>Tenant ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Phone No.</th>
+                    <th>Email</th>
+                    <th>Room No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in backup_status %}
+                <tr>
+                    <td>{{ row.T_ID }}</td>
+                    <td>{{ row.FNAME }}</td>
+                    <td>{{ row.LNAME }}</td>
+                    <td>{{ row.GENDER }}</td>
+                    <td>{{ row.PH_NO }}</td>
+                    <td>{{ row.EMAIL }}</td>
+                    <td>{{ row.ROOM_NO if row.ROOM_NO else 'N/A' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

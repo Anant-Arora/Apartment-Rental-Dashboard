@@ -1,102 +1,94 @@
-@font-face {
-  font-family: Algerian;
-  font-family: Lucida;
-  src: url(sansation_light.woff);
+/* === Modern "Total Users" Page Styles === */
+
+:root {
+    --dark-blue: #00203FFF;
+    --light-gray-bg: #f0f2f5;
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-light: #666;
 }
 
-*{
-	padding: 0;
-	margin: 0; 
-	outline: none;
-	border: none;
-	text-decoration: none;
-	box-sizing: border-box;
-  font-family: cursive;
+.main-content-area {
+    padding: 30px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-body {
-  background: #ADEFD1FF;
-  color: #00203FFF;
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
-a {
-  text-decoration: none;
-  color: #ADEFD1FF;
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
 }
 
-/* navbar styling */
-.navbar {
-  background: transparent;
-  background-size: auto;
-  display: inline;
+.search-container {
+    position: relative;
 }
 
-.navbar .nav-bar {
-  display: inline-block;
-  list-style: none;
+.search-container .live-search-box {
+    width: 300px;
+    padding: 12px 40px 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
-.users {
-  padding-left: 35px;
-  font-size: 36px;
-  font-family: 'Times New Roman', Times, serif;
-  text-transform: uppercase;
-  font-weight: bold;
+.search-container .live-search-box:focus {
+    outline: none;
+    border-color: var(--dark-blue);
 }
 
-.search {
-  padding-left: 520px;
-  padding-bottom: 80px;
+.search-container .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
 }
 
-.search input[type="text"] {
-  background: transparent;
-  height: 25px;
-  width: 250px;
-  color: black;
-  outline: none;
-  border: none;
-  font-size: 16px;
-  border-bottom: 2px solid #00203FFF;
-  margin-right: 25px;
-  font-family: Arial;
+.card-shadow {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* buttons*/
-
-.nav-bar li {
-  margin-top: 20px;
-  display: inline-block;
-  list-style: outside none none;
+/* Table Styles */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
 }
 
-.next, .previous {
-  font-size: 30px;
-  color: #00203FFF;
+.user-table thead tr {
+    background-color: #f8f9fa; /* Light header for the table */
+    text-align: left;
 }
 
-.previous {
-  margin-left: 80px;
+.user-table th,
+.user-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
 }
 
-.next {
-  margin-left: 50px; 
+.user-table th {
+    font-weight: 600;
+    color: var(--text-dark);
 }
 
-
-/*------------TABLE------------*/
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 1000px;
-  background-color: #00203FFF;
-  color: #ADEFD1FF;
-  margin: 55px 0 30px 150px;
+.user-table td {
+    color: var(--text-light);
 }
 
-th,td {
-  border: 1.5px solid ghostwhite;
-  text-align: center;
-  padding: 9px;
+.user-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.user-table tbody tr:last-child td {
+    border-bottom: none;
 }

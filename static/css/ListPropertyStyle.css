@@ -1,0 +1,122 @@
+/* === Modern "List Your Property" Page Styles === */
+
+:root {
+    --dark-blue: #00203FFF;
+    --light-gray-bg: #f0f2f5;
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-light: #666;
+}
+
+body.list-property-page {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-gray-bg);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.back-link-simple {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: black; /* Changed to black as requested */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.back-link-simple i {
+    margin-right: 8px;
+}
+
+.form-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Limits the width of the form */
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+.form-header p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.property-form .form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.property-form .form-group {
+    flex: 1; /* Makes form groups in a row share space equally */
+    margin-bottom: 20px;
+}
+
+.property-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.property-form input[type="text"],
+.property-form input[type="number"],
+.property-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.property-form input:focus,
+.property-form textarea:focus {
+    outline: none;
+    border-color: var(--dark-blue);
+}
+
+.file-uploads {
+    display: grid;
+    gap: 15px;
+}
+
+.file-uploads span {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #012d52;
+}

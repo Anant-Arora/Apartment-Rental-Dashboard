@@ -1,163 +1,148 @@
-@font-face {
-  font-family: Lucida;
-  src: url(sansation_light.woff);
+/* === Modern Contract Page Styles === */
+
+:root {
+    --dark-blue: #00203FFF;
+    --light-gray-bg: #f0f2f5;
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-light: #666;
 }
 
-body {
-	top: 0;
-	left: 0;
-	padding: 90px 110px 80px 110px;
-	font-family: 'Times New Roman', Times, serif;
-	background: #ADEFD1FF;
-	color: black;
-	font-size: 18px;
+body.contract-page {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-gray-bg);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
-nav {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background: #00203FFF;
-	padding: 16px 0 16px 35px;
-	margin: 0;
+.back-link-simple {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
-.back {
-	text-decoration: none;
-	color: #ADEFD1FF;
-	font-family: Lucida;
-	font-size: 28px;
+.back-link-simple i {
+    margin-right: 8px;
 }
 
-.fa-arrow-left {
-	padding-right: 10px;
+/* This is the main white tile with the shadow */
+.contract-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    width: 100%;
+    max-width: 900px;
 }
 
-.box {
-	border: 2px solid black;
-	padding-right: 80px;
-	padding-left: 80px;
-	text-align: justify;
-	line-height: 1.6;
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-h4 {
-	padding-top: 0;
-	font-size: 32px;
-	text-align: center;
+.form-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
 }
 
-.owner-info, .tenant-info {
-	padding-left:120px;
+.form-header p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-top: 5px;
 }
 
-input[type="date"], input[type="email"], input[type="number"]{
-	border: none;
-	outline: none;
-	background: transparent;
-	border-bottom: 1px solid black;
-	margin-left: 12px;
-	margin-right: 12px;
-	font-family: Lucida;
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
 }
 
-input[type="date"]{
-	font-size: 16px;
+.party-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-.if1, .if2, .if3, .if4{
-	border: none;
-	outline: none;
-	background: transparent;
-	border-bottom: 1px solid black;
-	font-size: 18px;
-	font-family: Lucida;
+.party {
+    flex-basis: 48%;
 }
 
-.if1, .if2, input[type="email"] {
-	width: 250px;
-	margin-left: 0;
-	font-size: 16px;
+.party h2 {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    border-bottom: 2px solid var(--light-gray-bg);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.if2, .if4, .if5 {
-	margin-left: 10px;
-	margin-right: 10px;
+.party p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
 }
 
-.if4 {
-	width: 390px;
-	font-size: 16px;
+.terms-section h2 {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    margin-bottom: 20px;
 }
 
-.if3 {
-	font-size: 18px;
+.terms-section ol {
+    padding-left: 20px;
 }
 
-.if5, .if6 {
-	width: 60px;
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
+.terms-section li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--text-light);
 }
 
-.if7 {
-	width: 100px;
+.terms-section input[type="date"] {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
 }
 
-.btn, .reset {
-background: #00203FFF;
-  color: #ADEFD1FF;
-  padding: 16px 20px;
-  border: 1px solid #000;
-  border-radius: 10%;
-  cursor: pointer;
-  width: 100px;
-  height: 60px;
-  text-align: center;
-  margin-top: 25px;
-  font-size: 20px;
-  box-shadow: 2px 2px 8px #000;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.agreement-check {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
 }
 
-.btn:hover, .reset:hover {
-	color: ghostwhite;
-	font-weight: bold;
+.agreement-check input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
 }
 
-.btn {
-  margin:0 150px 60px 270px;
+.form-buttons {
+    margin-top: 30px;
 }
 
-.msg {
-	font-size: 22px;
-	color: #fff;
-	background-color: #000;
-	border: 1px solid #00203FFF;
-	width: 400px;
-	height: 50px;
-	text-align: center;
-	padding-top: 22px;
-	position: fixed;
-	top: calc(50% - 75px);
-	left: calc(50% - 200px);
-	z-index: 9;
-    -webkit-animation: cssAnimation 5s forwards; 
-    animation: cssAnimation 5s forwards;
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-@keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
-}
-
-@-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;}
-	80%   {opacity: 0.8;}
-	90%  {opacity: 0.3;}
-    100% {opacity: 0;}
+.submit-btn:hover {
+    background: #012d52;
 }
