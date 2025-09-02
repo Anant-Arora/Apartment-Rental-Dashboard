@@ -61,10 +61,10 @@ Here are some key screens from the project:
 ![Landing Page](Project_Images/Login_Page.png)
 
 ### Tenant Dashboard
-![Tenant Dashboard](Project_Images/Admin_Dashboard.png)
+![Tenant Dashboard](Project_Images/User_Dashboard.png)
 
 ### Admin Dashboard
-![Admin Dashboard](static/images/admin_dashboard.png)
+![Admin Dashboard](Project_Images/Admin_Dashboard.png)
 
 ### Payment Page
 ![Payment Page](static/images/payment.png)
