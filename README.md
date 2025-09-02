@@ -35,7 +35,7 @@ ARORA Rentals is a modern web application built to digitize and streamline the e
 - Personalized Dashboard with user-specific data  
 - Browse & Search Properties with filters  
 - List Your Own Property with a simple form  
-- Full Rental Workflow including digital contract  
+- Full Rental Workflow including digital contract
 
 ### 👑 Admin Features
 - Secure Admin Portal  
@@ -52,6 +52,22 @@ ARORA Rentals is a modern web application built to digitize and streamline the e
 - Instant Digital Receipt generation  
 
 ---
+
+## Screenshots
+
+Here are some key screens from the project:
+
+### Login Page
+![Landing Page](static/images/landing.png)
+
+### Tenant Dashboard
+![Tenant Dashboard](static/images/tenant_dashboard.png)
+
+### Admin Dashboard
+![Admin Dashboard](static/images/admin_dashboard.png)
+
+### Payment Page
+![Payment Page](static/images/payment.png)
 
 ## 📁 Project Structure
 
