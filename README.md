@@ -67,10 +67,10 @@ Here are some key screens from the project:
 ![Admin Dashboard](Project_Images/Admin_Dashboard.png)
 
 ### Payment Page
-![Payment Page](static/images/payment.png)
+![Payment Page](Project_Images/Payment_Page.png)
 
 ### Apartment List
-![Apartment List](Project_Images/Apartment_list.png)
+![Apartment List](Project_Images/Property_list.png)
 
 ## 📁 Project Structure
 
