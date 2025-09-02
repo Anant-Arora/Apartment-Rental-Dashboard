@@ -60,6 +60,9 @@ Here are some key screens from the project:
 ### Login Page
 ![Landing Page](Project_Images/Login_Page.png)
 
+### Sign In
+![Sign In](Project_Images/Registration.png)
+
 ### Tenant Dashboard
 ![Tenant Dashboard](Project_Images/User_Dashboard.png)
 
