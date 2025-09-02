@@ -61,7 +61,7 @@ Here are some key screens from the project:
 ![Landing Page](static/images/landing.png)
 
 ### Tenant Dashboard
-![Tenant Dashboard](static/images/tenant_dashboard.png)
+![Tenant Dashboard](Project_Images/Admin_Dashboard.png)
 
 ### Admin Dashboard
 ![Admin Dashboard](static/images/admin_dashboard.png)
