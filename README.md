@@ -69,6 +69,9 @@ Here are some key screens from the project:
 ### Payment Page
 ![Payment Page](static/images/payment.png)
 
+### Apartment List
+![Apartment List](Project_Images/Apartment_list.png)
+
 ## 📁 Project Structure
 
 The project follows a standard Flask application structure, separating backend logic, frontend templates, static assets, and database scripts for clarity and maintainability.
