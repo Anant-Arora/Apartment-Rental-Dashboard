@@ -58,7 +58,7 @@ ARORA Rentals is a modern web application built to digitize and streamline the e
 Here are some key screens from the project:
 
 ### Login Page
-![Landing Page](static/images/landing.png)
+![Landing Page](Project_Images/Login_Page.png)
 
 ### Tenant Dashboard
 ![Tenant Dashboard](Project_Images/Admin_Dashboard.png)
