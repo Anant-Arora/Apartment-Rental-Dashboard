@@ -23,4 +23,3 @@ pip install -r requirements.txt
    * **MySQL Server** - the database server.
 4. Navigate to main.py file and run the file in VSCode.
 5. Click on the link generated to run the project.
-
