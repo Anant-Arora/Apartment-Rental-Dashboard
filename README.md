@@ -79,3 +79,10 @@ Here are some key screens from the project:
 
 The project follows a standard Flask application structure, separating backend logic, frontend templates, static assets, and database scripts for clarity and maintainability.
 
+---
+
+## Conclusion
+This Project provides a complete online interface for listing, booking, and managing apartments. It simplifies the rental process by connecting tenants and landlords on a single platform with secure authentication, role-based dashboards, booking management, and payment tracking.
+
+This project helped in building strong skills in full-stack development, Flask routing, database design with MySQL, session handling, and stored procedures. It not only delivers a functional solution for real-world rental management but also serves as a practical learning experience in developing scalable and efficient web applications.
+
