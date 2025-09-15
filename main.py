@@ -1,7 +1,6 @@
 #import libraries
 from flask import Flask, redirect, render_template, flash, request, url_for, session
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
+
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 import uuid
@@ -18,14 +17,12 @@ app = Flask(__name__)
 # app.secret_key = 'your secret key'
 app.secret_key = "apartment_rental"
 
-#code for connection
-app.config['MYSQL_HOST'] = 'localhost' #hostname
-app.config['MYSQL_USER'] = 'root' #username
-app.config['MYSQL_PASSWORD'] = '' #password
-#in my case password is null so i am keeping empty
-app.config['MYSQL_DB'] = 'apartmentRental' #database name
+# Code for professional database connection
+# New code for professional PostgreSQL connection
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Intialize MySQL
-mysql = MySQL(app)
+
            
 @app.route('/')
 def home() :
@@ -721,11 +718,6 @@ def Payment1(aptNo,Tname,PhNo, Uname, rentAmt, late_fee, totAmt) :
 @app.route('/Receipt/<Tname>/<pay_id>/<pay_date>/<pay_amt>', methods=['GET','POST'])
 def Receipt(Tname,pay_id,pay_date,pay_amt) :
     return render_template('Reciept.html', Tname=Tname, pay_id=pay_id, pay_date=pay_date ,pay_amt=pay_amt)
-
-
-if __name__ == '__main__':
-    app.run(port=5000,debug=True)
-
 @app.route('/ApartmentRooms', methods=['POST','GET'])
 def ApartmentRooms():
     # 1. Security First: Ensure only a logged-in admin can access this page.

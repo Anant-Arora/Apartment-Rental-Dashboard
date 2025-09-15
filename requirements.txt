@@ -109,7 +109,8 @@ finnhub-python==2.4.23
 flake8 @ file:///C:/ci_311/flake8_1678376624746/work
 Flask @ file:///C:/ci_311/flask_1676436667658/work
 Flask-Login==0.6.2
-Flask-MySQLdb==1.0.1
+Flask-SQLAlchemy
+psycopg2-binary
 Flask-SQLAlchemy==3.0.2
 flatbuffers==24.12.23
 fonttools==4.25.0
@@ -480,3 +481,4 @@ zict @ file:///C:/b/abs_fc7elavmem/croot/zict_1682698759288/work
 zipp @ file:///C:/ci_311/zipp_1676426100491/work
 zope.interface @ file:///C:/ci_311/zope.interface_1676439868776/work
 zstandard==0.19.0
+gunicorn
